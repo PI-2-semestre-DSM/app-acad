@@ -1,4 +1,4 @@
-@startuml
+@startuml TitaniumDBSchema
 skinparam linetype ortho
 
 entity "alunos" {
@@ -56,11 +56,9 @@ entity "pagamentosMensalidades" {
 }
 
 alunos }o--o|planos
-vendas |o--o| produtoVenda
-produtos |o--o| produtoVenda
+vendas |o--o{ produtoVenda
+produtos |o--o{ produtoVenda
 pagamentosMensalidades }--|| alunos
 vendas }..o| alunos
-
-
 
 @enduml
