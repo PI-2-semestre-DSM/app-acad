@@ -1,4 +1,4 @@
-@startuml TitaniumAcadDB
+@startuml
 skinparam linetype ortho
 
 entity "alunos" {
@@ -35,8 +35,8 @@ entity "produtoVenda" {
 --
 *idProduto: INTEGER <<FK>>
 *idVenda: INTEGER <<FK>>
-*data: DATETIME
 *valorUnitario: DECIMAL(5,2)
+*quantidade: INTEGER
 }
 
 entity "planos" {
