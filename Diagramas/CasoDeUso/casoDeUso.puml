@@ -4,8 +4,10 @@ skinparam actorStyle awesome
 :Admin/Funcionario: as admin
 
 (Adicionar Produto ao Estoque) as UC4
+(Editar produto do estoque) as UC3
 (Remover Produto do Estoque) as UC5
 (Ver lista de Alunos) as UC6
+(Editar dados de aluno) as UC9
 (Relatório de Frequência dos alunos) as UC7
 (Registrar uma venda) as UC10
 (Realizar matrícula de aluno) as UC1
@@ -18,11 +20,13 @@ skinparam actorStyle awesome
 
 admin -up-> UC1
 admin -up-> UC2
+admin --> UC3
 admin --> UC4
 admin --> UC5
 admin --> UC6
 admin --> UC7
 admin --> UC8
+admin --> UC9
 admin --> UC10
 admin --> UC11
 admin --> UC14
