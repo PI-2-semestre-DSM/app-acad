@@ -1,0 +1,66 @@
+@startuml
+skinparam linetype ortho
+
+entity "alunos" {
+* **id: INTEGER <<auto increment>>**
+--
+*name: VARCHAR(100)
+*telefone: VARCHAR(15)
+*cpf: VARCHAR(11)
+*plano: INT <<FK>>
+*dataMatricula: DATE
+*ativo: BOOLEAN (DEFAULT TRUE)
+}
+
+entity "produtos" {
+* **id: INTEGER <<auto increment>>**
+--
+*titulo: VARCHAR(100)
+ descricao: TEXT
+*precoCompra: DECIMAL(5,2)
+*precoVenda: DECIMAL(5,2)
+*estoque: INTEGER
+}
+
+
+entity "vendas" {
+* **id: INTEGER <<auto increment>>**
+--
+ idAluno: INTEGER
+*data: DATETIME
+}
+
+entity "produtoVenda" {
+* **id: INTEGER <<auto increment>>**
+--
+*idProduto: INTEGER <<FK>>
+*idVenda: INTEGER <<FK>>
+*valorUnitario: DECIMAL(5,2)
+*quantidade: INTEGER
+}
+
+entity "planos" {
+* **id: INTEGER <<auto increment>>**
+--
+*tipoPlano: VARCHAR(100)
+*descricao: TEXT
+*valor: DECIMAL(5,2)
+}
+
+entity "pagamentosMensalidades" {
+* **id: INTEGER <<auto increment>>**
+--
+*idAluno: INTEGER <<FK>>
+*idPlano: INTEGER <<FK>>
+*data: DATETIME
+}
+
+alunos }o--o|planos
+vendas |o--o| produtoVenda
+produtos |o--o| produtoVenda
+pagamentosMensalidades }--|| alunos
+vendas }..o| alunos
+
+
+
+@enduml
