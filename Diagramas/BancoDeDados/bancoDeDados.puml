@@ -7,7 +7,7 @@ entity "alunos" {
 *name: VARCHAR(100)
 *telefone: VARCHAR(15)
 *cpf: VARCHAR(11)
-*plano: INT <<FK>>
+*idPlano: INT <<FK>>
 *dataMatricula: DATE
 *ativo: BOOLEAN (DEFAULT TRUE)
 }
@@ -59,6 +59,6 @@ alunos }o--o|planos
 vendas |o--o{ produtoVenda
 produtos |o--o{ produtoVenda
 pagamentosMensalidades }--|| alunos
+pagamentosMensalidades }--|| planos
 vendas }..o| alunos
-
 @enduml
