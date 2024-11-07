@@ -8,7 +8,7 @@ entity "alunos" {
 *telefone: VARCHAR(15)
 *cpf: VARCHAR(11)
 *idPlano: INT <<FK>>
-*dataMatricula: DATE
+*dataMatricula: DATETIME
 *ativo: BOOLEAN (DEFAULT TRUE)
 }
 
