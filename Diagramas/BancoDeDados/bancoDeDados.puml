@@ -1,4 +1,4 @@
-@startuml
+@startuml TitaniumDBSchema
 skinparam linetype ortho
 
 entity "alunos" {
@@ -7,8 +7,8 @@ entity "alunos" {
 *name: VARCHAR(100)
 *telefone: VARCHAR(15)
 *cpf: VARCHAR(11)
-*plano: INT <<FK>>
-*dataMatricula: DATE
+*idPlano: INT <<FK>>
+*dataMatricula: DATETIME
 *ativo: BOOLEAN (DEFAULT TRUE)
 }
 
@@ -55,12 +55,17 @@ entity "pagamentosMensalidades" {
 *data: DATETIME
 }
 
+entity "usuario" {
+* **id: INTEGER <<auto increment>>**
+--
+*nomeDeUsuario: VARCHAR(20)
+*senha: VARCHAR(12)
+}
+
 alunos }o--o|planos
-vendas |o--o| produtoVenda
-produtos |o--o| produtoVenda
+vendas |o--o{ produtoVenda
+produtos |o--o{ produtoVenda
 pagamentosMensalidades }--|| alunos
+pagamentosMensalidades }--|| planos
 vendas }..o| alunos
-
-
-
 @enduml
