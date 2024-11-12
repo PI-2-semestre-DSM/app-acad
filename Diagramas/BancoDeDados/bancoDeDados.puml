@@ -55,6 +55,13 @@ entity "pagamentosMensalidades" {
 *data: DATETIME
 }
 
+entity "usuario" {
+* **id: INTEGER <<auto increment>>**
+--
+*nomeDeUsuario: VARCHAR(20)
+*senha: VARCHAR(12)
+}
+
 alunos }o--o|planos
 vendas |o--o{ produtoVenda
 produtos |o--o{ produtoVenda
