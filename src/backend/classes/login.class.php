@@ -10,11 +10,6 @@ class Login
     $this->conexao = $conectarDB->obterConexao();
   }
 
-  public function obterConexao()
-  {
-    return $this->conexao;
-  }
-
   public function verificarCredenciais($nomeDeUsuario, $senha)
   {
     try {
