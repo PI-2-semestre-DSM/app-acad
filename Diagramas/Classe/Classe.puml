@@ -1,0 +1,21 @@
+@startuml
+
+class ConexaoBancoDeDados {
+    - conexao
+    + obterConexao()
+    + __destruct()
+    - conectar()
+}
+
+class Login {
+    - conexao
+    + obterConexao()
+    + verificarCredenciais()
+    + verificarLogin()
+    + logout()
+    + __destruct()
+}
+
+Login ..> ConexaoBancoDeDados : usa
+
+@enduml
