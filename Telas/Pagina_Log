@@ -1,0 +1,122 @@
+Código HTML e JS da página de login
+--------------------------------------------------------------------------------------------------------------------------
+HTML:
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="login.js" defer></script> 
+</head>
+
+<body>
+    <div class="container text-center" style="margin-top: 100px;">
+        <div class="dropdown d-inline-block">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Entrar
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <form class="px-4 py-3" id="loginForm" onsubmit="validarLogin(event)">
+                    <div class="form-group">
+                        <label for="exampleDropdownFormNumber">Usuário</label>
+                        <input type="number" class="form-control" id="exampleDropdownFormNumber" placeholder="Digite sua numeração" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormPassword1">Senha</label>
+                        <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Senha" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                </form>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#registerModal">Novo, por aqui? Registre-se.</a>
+            </div>
+        </div>
+    </div>
+
+   
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm" onsubmit="registrarUsuario(event)">
+                        <div class="form-group">
+                            <label for="registerName">Nome</label>
+                            <input type="text" class="form-control" id="registerName" placeholder="Digite seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerNumber">Numeração de usuário</label>
+                            <input type="number" class="form-control" id="registerNumber" placeholder="Digite sua numeração" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Senha</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Senha" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+--------------------------------------------------------------------------------------------------------------------------
+JS:
+
+function registrarUsuario(event) {
+    event.preventDefault(); // Impede o envio do formulário
+
+    const nome = document.getElementById('registerName').value;
+    const numero = document.getElementById('registerNumber').value;
+    const senha = document.getElementById('registerPassword').value;
+
+    // Armazenar o usuário no localStorage
+    const usuario = {
+        nome: nome,
+        numero: numero,
+        senha: senha
+    };
+
+    localStorage.setItem(`usuario_${numero}`, JSON.stringify(usuario));
+
+    // Redireciona para uma página em branco após o registro
+    window.location.href = 'pagina_inicial2.html'; // Altere para o URL desejado
+
+    // Limpar o formulário
+    document.getElementById('registerForm').reset();
+    
+    // Fechar o modal após o registro
+    $('#registerModal').modal('hide');
+}
+
+function validarLogin(event) {
+    event.preventDefault(); // Impede o envio do formulário
+
+    const numero = document.getElementById('exampleDropdownFormNumber').value;
+    const senha = document.getElementById('exampleDropdownFormPassword1').value;
+
+    // Recuperar o usuário do localStorage
+    const usuario = JSON.parse(localStorage.getItem(`usuario_${numero}`));
+
+    // Validar o login
+    if (usuario && usuario.senha === senha) {
+        window.location.href = 'pagina_inicial2.html'; // Redireciona para a página em branco
+    } else {
+        alert('Numeração ou senha incorretos!');
+    }
+}
+
+
+
+
