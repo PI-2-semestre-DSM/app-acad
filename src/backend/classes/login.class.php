@@ -23,6 +23,7 @@ class Login
 
       // Se for possível implementar hash de senha na criação do usuário. 
       // No entanto o sistema é de usuário único, sem maiores problemas por enquanto.
+      // dps vou pesquisar sobre e tentar aplicar.
       if ($preparaQuery->rowCount() > 0) {
         $usuario = $preparaQuery->fetch(PDO::FETCH_ASSOC);
         print_r($usuario["senha"]);
@@ -54,8 +55,9 @@ class Login
   public function logout()
   {
     session_destroy();
-    //header("Location: .php"); 
+    header("Location: index.php"); 
     //FRONTEND:referenciar a pagina de login aqui.
+    //fiz a mudança ai ja.
     exit();
   }
 
