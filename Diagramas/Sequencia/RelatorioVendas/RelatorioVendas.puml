@@ -1,0 +1,19 @@
+@startuml
+skinparam actorStyle awesome
+actor Usuario as usuario
+participant RelatorioVendas as relatorio
+participant Banco_De_Dados as db
+
+usuario -> relatorio : Solicitar geração de relatório (data início e fim)
+relatorio -> db : Conectar ao banco de dados
+db --> relatorio : Conexão estabelecida
+
+relatorio -> db : Executar procedimento para gerar relatório
+alt Relatório gerado com sucesso
+    db --> relatorio : Retornar dados do relatório
+    relatorio --> usuario : Exibir resultados do relatório
+else Falha ao gerar relatório
+    db --> relatorio : Informar erro ao processar o relatório
+    relatorio --> usuario : Notificar falha na geração do relatório
+end
+@enduml
