@@ -10,7 +10,7 @@ class Produtos
     $this->conexao = $conectarDB->obterConexao();
   }
 
-  function criarProduto($titulo, $descricao, $precoCompra, $precoVenda, $estoque)
+  private function criarProduto($titulo, $descricao, $precoCompra, $precoVenda, $estoque)
   {
     // antes de criar produto, fazer uma função privada que verifica se já existe o produto em questão. Se existir, executar a função de UPDATE. Se não existir, prossegue com o cadastro de novo item.
 
