@@ -12,8 +12,6 @@ class Produtos
 
   private function criarProduto($titulo, $descricao, $precoCompra, $precoVenda, $estoque)
   {
-    // antes de criar produto, fazer uma função privada que verifica se já existe o produto em questão. Se existir, executar a função de UPDATE. Se não existir, prossegue com o cadastro de novo item.
-
     if ($this->pesquisarProduto($titulo)) {
       echo "Produto já existente!";
       exit();
@@ -31,6 +29,8 @@ class Produtos
         ':precoVenda' => $precoVenda,
         ':estoque' => $estoque,
       ]);
+
+      return true;
     } catch (PDOException $e) {
       echo "Erro ao fazer login: " . $e->getMessage();
       return false;
