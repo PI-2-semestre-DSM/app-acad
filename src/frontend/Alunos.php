@@ -1,5 +1,7 @@
+
 <?php
 include("navbar.php");
+include("login_ativo.php");
 ?>
 
     
@@ -8,14 +10,9 @@ include("navbar.php");
             <li class="page-item disabled">
                 <a class="page-link" href="#" tabindex="-1">Anterior</a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">MATRICULA</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">>></a>
-            </li>
+            <li class="page-item"><a class="page-link" href="#">ALUNOS</a></li>
         </ul>
     </nav>
-
-    
     <div class="container">
         <table class="table table-bordered">
             <thead>
@@ -24,8 +21,7 @@ include("navbar.php");
                     <th>Nome</th>
                     <th>Telefone</th>
                     <th>CPF</th>
-                    <th>Plano</th>
-                    <th>Data Matricula</th>
+                    <th>Endereço</th>
                     <th>Ativo</th>
                 </tr>
             </thead>
@@ -36,9 +32,23 @@ include("navbar.php");
                     <td contenteditable="true"></td>
                     <td contenteditable="true" style="border: 2px solid blue;"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true">00/00/0000</td>
-                    <td contenteditable="true">-</td>
+                    <td contenteditable="true"></td>
                 </tr>
+                <tr>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true">-</td>
                 </tr>
             </tbody>
         </table>
@@ -58,8 +68,7 @@ include("navbar.php");
                 <td contenteditable="true"></td>
                 <td contenteditable="true" style="border: 2px solid blue;"></td>
                 <td contenteditable="true"></td>
-                <td contenteditable="true">00/00/0000</td>
-                <td contenteditable="true">-</td>
+                <td contenteditable="true"></td>
             `;
             tabela.appendChild(novaLinha);
         }

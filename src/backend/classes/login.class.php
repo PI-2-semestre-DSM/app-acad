@@ -30,6 +30,7 @@ class Login
         if (($senha == $usuario["senha"])) {
           $_SESSION["logged_in"] = TRUE;
           return true;
+          
         } else {
           echo "Credenciais incorretas / senha inválida...";
           return false;
@@ -42,6 +43,7 @@ class Login
       echo "Erro ao fazer login: " . $e->getMessage();
       return false;
     }
+    
   }
 
   public function verificarLogin()
@@ -50,6 +52,7 @@ class Login
       return TRUE;
     }
     $this->logout();
+  
   }
 
   public function logout()
