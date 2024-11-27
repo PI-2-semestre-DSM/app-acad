@@ -4,19 +4,7 @@ include("login_ativo.php");
 ?>
 
     
-    <nav aria-label="Navegação de página">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Anterior</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">MATRICULA</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">>></a>
-            </li>
-        </ul>
-    </nav>
-
-    
+<div class="titulo"><h1>Cadastrar Aluno</h1></div>
     <div class="container">
         <table class="table table-bordered">
             <thead>
@@ -35,7 +23,7 @@ include("login_ativo.php");
                     <td contenteditable="true"></td>
                     <td contenteditable="true"></td>
                     <td contenteditable="true"></td>
-                    <td contenteditable="true" style="border: 2px solid blue;"></td>
+                    <td contenteditable="true"></td>
                     <td contenteditable="true"></td>
                     <td contenteditable="true">00/00/0000</td>
                     <td contenteditable="true">-</td>
@@ -44,7 +32,7 @@ include("login_ativo.php");
             </tbody>
         </table>
         <div class="button-container text-center">
-            <button onclick="adicionarLinha()" class="btn btn-primary">Adicionar Aluno</button>
+            <button class="btn btn-primary">Cadastrar</button>
             <button class="btn btn-secondary">Voltar</button>
         </div>
     </div>

@@ -12,6 +12,14 @@ echo '<!DOCTYPE html>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="js/login.js" defer></script> 
+    <style>
+    .titulo {
+    text-align: center;
+    margin-top: 10px; 
+    margin-bottom: 15px;
+    }
+
+    </style>
 </head>
 
 <body>
