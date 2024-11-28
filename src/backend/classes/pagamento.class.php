@@ -1,4 +1,6 @@
 <?php
+require("connection.class.php");
+
 class Pagamento
 {
   private $conexao;
