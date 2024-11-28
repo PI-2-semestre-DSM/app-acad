@@ -18,7 +18,7 @@ class Produtos
     }
 
     try {
-      $sql = "INSERT INTO produtos (titulo, descricao, precoCompra, precoVenda, estoque) VALUES (:titulo, :descricao, :precoCompra, :precoVenda, :estoque) = :nomeDeUsuario";
+      $sql = "INSERT INTO produtos (titulo, descricao, precoCompra, precoVenda, estoque) VALUES (:titulo, :descricao, :precoCompra, :precoVenda, :estoque)";
 
       $preparaQuery = $this->conexao->prepare($sql);
 
