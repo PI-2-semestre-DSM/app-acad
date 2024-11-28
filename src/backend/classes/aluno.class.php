@@ -1,4 +1,6 @@
 <?php
+require("connection.class.php");
+
 class Aluno
 {
   private $conexao;
@@ -12,7 +14,7 @@ class Aluno
   private function listaAlunos()
   {
     try {
-      $sql = "SELECT * FROM alunos";
+      $sql = "SELECT a.id, a.nome, a.telefone, a.cpf, a.dataMatricula, a.ativo, p.tipoPlano , p.valor FROM alunos a JOIN planos p ON a.idPlano = p.id;";
       $alunos = $this->conexao->prepare($sql);
       $alunos->execute();
       return $alunos->fetchAll(PDO::FETCH_ASSOC);
