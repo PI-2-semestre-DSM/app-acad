@@ -1,4 +1,6 @@
 <?php
+require("connection.class.php");
+
 class Pagamento
 {
   private $conexao;
@@ -20,6 +22,7 @@ class Pagamento
         ':idPlano' => $idPlano,
         ':dataPagamento' => $dataPagamento,
       ]);
+      return true;
     } catch (PDOException $e) {
       echo "Erro ao registrar pagamento: " . $e->getMessage();
       return false;

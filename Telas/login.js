@@ -24,6 +24,8 @@ function registrarUsuario(event) {
     $('#registerModal').modal('hide');
 }
 
+
+    
 function validarLogin(event) {
     event.preventDefault(); // Impede o envio do formulário
 
@@ -34,9 +36,14 @@ function validarLogin(event) {
     const usuario = JSON.parse(localStorage.getItem(`usuario_${numero}`));
 
     // Validar o login
+    
+    
+    
     if (usuario && usuario.senha === senha) {
-        window.location.href = 'pagina_inicial.html'; // Redireciona para a página em branco
+        window.location.href = 'pagina_inicial.php'; // Redireciona para a página em branco
     } else {
         alert('Numeração ou senha incorretos!');
     }
+
+
 }
