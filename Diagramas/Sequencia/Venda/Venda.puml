@@ -16,4 +16,13 @@ else Falha ao registrar a venda
     db --> venda : Informar erro no registro
     venda --> usuario : Notificar falha ao registrar a venda
 end
+
+venda -> db : Atualizar estoque
+alt Estoque atualizado com sucesso
+    db --> venda : Confirmação da atualização do estoque
+    venda --> usuario : Notificar sucesso na atualização do estoque
+else Falha ao atualizar estoque
+    db --> venda : Erro ao atualizar estoque
+    venda --> usuario : Notificar falha na atualização do estoque
+end
 @enduml
