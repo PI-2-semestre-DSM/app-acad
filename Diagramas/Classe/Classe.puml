@@ -1,11 +1,19 @@
 @startuml
-
 class ConexaoBancoDeDados {
     - conexao
     + __construct()
     + obterConexao()
     + __destruct()
     - conectar()
+}
+
+class Aluno {
+    - conexao
+    + __construct()
+    + obterListaDeAlunos()
+    + obterTrancarMatricula(id)
+    - listaAlunos()
+    - trancarMatricula(idAluno)
 }
 
 class Venda {
@@ -17,13 +25,20 @@ class Venda {
 class Produtos {
     - conexao
     + __construct()
+    + obterProdutos()
+    + novoProduto()
+    + fazerDelecaoProduto(id)
     - criarProduto()
     - listaDeProdutos()
     - deletarProduto()
-    + obterProdutos()
-    + novoProduto()
-    + fazerDelecaoProduto()
     - pesquisarProduto()
+}
+
+class Pagamento {
+    - conexao
+    + __construct()
+    + registrarPagamento()
+    - registrarPgtoMensalidade()
 }
 
 class RelatorioVendas {
@@ -41,9 +56,10 @@ class Login {
     + __destruct()
 }
 
+Aluno ..> ConexaoBancoDeDados : usa
 Venda ..> ConexaoBancoDeDados : usa
 Produtos ..> ConexaoBancoDeDados : usa
+Pagamento ..> ConexaoBancoDeDados : usa
 RelatorioVendas ..> ConexaoBancoDeDados : usa
 Login ..> ConexaoBancoDeDados : usa
-
 @enduml
