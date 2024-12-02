@@ -1,0 +1,19 @@
+@startuml
+skinparam actorStyle awesome
+actor Usuario as usuario
+participant Pagamento as pagamento
+participant Banco_De_Dados as db
+
+usuario -> pagamento : Solicitar pagamento mensalidade
+pagamento -> db : Conectar ao banco de dados
+db --> pagamento : Conexão estabelecida
+
+pagamento -> db : Registrar pagamento da mensalidade
+alt Pagamento registrado com sucesso
+    db --> pagamento : Confirmação do pagamento
+    pagamento --> usuario : Notificar pagamento bem-sucedido
+else Falha ao registrar pagamento
+    db --> pagamento : Erro ao registrar pagamento
+    pagamento --> usuario : Notificar falha no pagamento
+end
+@enduml
