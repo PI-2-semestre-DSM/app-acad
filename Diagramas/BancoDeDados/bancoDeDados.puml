@@ -27,7 +27,7 @@ entity "vendas" {
 * **id: INTEGER <<auto increment>>**
 --
  idAluno: INTEGER
-*data: DATETIME
+*dataVenda: DATETIME
 }
 
 entity "produtoVenda" {
@@ -52,7 +52,7 @@ entity "pagamentosMensalidades" {
 --
 *idAluno: INTEGER <<FK>>
 *idPlano: INTEGER <<FK>>
-*data: DATETIME
+*dataPagamento: DATETIME
 }
 
 entity "usuario" {

@@ -2,20 +2,48 @@
 
 class ConexaoBancoDeDados {
     - conexao
+    + __construct()
     + obterConexao()
     + __destruct()
     - conectar()
 }
 
+class Venda {
+    - conn
+    + __construct()
+    + registrarVenda()
+}
+
+class Produtos {
+    - conexao
+    + __construct()
+    - criarProduto()
+    - listaDeProdutos()
+    - deletarProduto()
+    + obterProdutos()
+    + novoProduto()
+    + fazerDelecaoProduto()
+    - pesquisarProduto()
+}
+
+class RelatorioVendas {
+    - conn
+    + __construct()
+    + gerarRelatorio()
+}
+
 class Login {
     - conexao
-    + obterConexao()
+    + __construct()
     + verificarCredenciais()
     + verificarLogin()
     + logout()
     + __destruct()
 }
 
+Venda ..> ConexaoBancoDeDados : usa
+Produtos ..> ConexaoBancoDeDados : usa
+RelatorioVendas ..> ConexaoBancoDeDados : usa
 Login ..> ConexaoBancoDeDados : usa
 
 @enduml
