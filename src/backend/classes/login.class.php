@@ -1,5 +1,5 @@
 <?php
-require('connection.class.php');
+require_once('connection.class.php');
 class Login
 {
   private $conexao;
@@ -30,7 +30,6 @@ class Login
         if (($senha == $usuario["senha"])) {
           $_SESSION["logged_in"] = TRUE;
           return true;
-          
         } else {
           echo "Credenciais incorretas / senha inválida...";
           return false;
@@ -43,7 +42,6 @@ class Login
       echo "Erro ao fazer login: " . $e->getMessage();
       return false;
     }
-    
   }
 
   public function verificarLogin()
@@ -52,13 +50,12 @@ class Login
       return TRUE;
     }
     $this->logout();
-  
   }
 
   public function logout()
   {
     session_destroy();
-    header("Location: index.php"); 
+    header("Location: index.php");
     //FRONTEND:referenciar a pagina de login aqui.
     //fiz a mudança ai ja.
     exit();
