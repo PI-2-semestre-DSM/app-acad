@@ -4,8 +4,6 @@ include("login_ativo.php");
 
 
 require_once('../backend/classes/products.class.php');
-require_once('../backend/classes/connection.class.php');
-
 
 if (isset($_POST['submit'])) {
 
@@ -17,7 +15,9 @@ if (isset($_POST['submit'])) {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $cadastra = new produtos();
-        $cadastra->criarProduto($nome, $desc, $precoC, $precoV, $estoque);
+        $cadastra->novoProduto($nome, $desc, $precoC, $precoV, $estoque);
+
+        $cadastra->__destruct();
 
         header("Location: estoque.php");
         exit();
