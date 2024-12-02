@@ -1,6 +1,6 @@
-
 <?php
 include("navbar.php");
+include("login_ativo.php");
 ?>
 
     
@@ -10,13 +10,9 @@ include("navbar.php");
                 <a class="page-link" href="#" tabindex="-1">Anterior</a>
             </li>
             <li class="page-item"><a class="page-link" href="#">ALUNOS</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">INSERIR +</a>
-            </li>
         </ul>
     </nav>
-
     
-
 </body>
 </html>
+

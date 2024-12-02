@@ -1,5 +1,8 @@
 <?php
-require_once('./database.php');
+require_once("../backend/database.php");
+
+
+/*require_once('../database.php');*/
 
 class ConexaoBancoDeDados
 {
