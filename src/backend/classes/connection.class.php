@@ -1,5 +1,5 @@
 <?php
-require('../backend/database.php');
+require_once("../backend/database.php");
 
 
 /*require_once('../database.php');*/

@@ -1,5 +1,6 @@
 <?php
-require('connection.class.php');
+require_once('connection.class.php');
+
 class Produtos
 {
   private $conexao;
@@ -100,5 +101,10 @@ class Produtos
     } catch (PDOException $e) {
       echo "Erro ao encontrar produto: " . $e->getMessage();
     }
+  }
+
+  public function __destruct()
+  {
+    $this->conexao = null;
   }
 }
