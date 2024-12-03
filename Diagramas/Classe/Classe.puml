@@ -14,10 +14,10 @@ class Aluno {
     - listaAlunos()
     - trancarMatricula()
     - destrancarMatricula()
-    + matricularAluno()
     + obterListaDeAlunos()
     + obterTrancarMatricula()
     + obterDestrancarMatricula()
+    + matricularAluno()
     + __destruct()
 }
 
@@ -34,8 +34,8 @@ class Produtos {
     - listaDeProdutos()
     - deletarProduto()
     - pesquisarProduto()
-    + obterProdutos()
     + novoProduto()
+    + obterProdutos()
     + fazerDelecaoProduto()
     + __destruct()
 }
