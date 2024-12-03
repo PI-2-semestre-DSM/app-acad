@@ -9,3 +9,4 @@ $tranca = new Aluno();
 $tranca->obterTrancarMatricula($id);
 
 $tranca->__destruct();
+header("Location: alunos.php");

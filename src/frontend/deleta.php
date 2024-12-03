@@ -9,3 +9,4 @@ $deleta = new Produtos();
 $deleta->fazerDelecaoProduto($id);
 
 $deleta->__destruct();
+header("Location: estoque.php");
