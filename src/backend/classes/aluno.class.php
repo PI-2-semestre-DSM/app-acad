@@ -1,5 +1,5 @@
 <?php
-require("connection.class.php");
+require_once("connection.class.php");
 
 class Aluno
 {
@@ -11,20 +11,20 @@ class Aluno
     $this->conexao = $conectarDB->obterConexao();
   }
 
-  private function novoAluno($nome, $telefone, $cpf, $tipoPlano)
+  private function novoAluno($nome, $telefone, $cpf, $idPlano)
   {
     try {
-      $sql = "INSERT INTO alunos (nome, telefone, cpf, tipoPlano, dataMatricula) VALUES (:nome, :telefone, :cpf, :tipoPlano, :dataMatricula)";
+      $sql = "INSERT INTO alunos (nome, telefone, cpf, idPlano, dataMatricula) VALUES (:nome, :telefone, :cpf, :idPlano, :dataMatricula)";
       $now = date("Y-m-d H:i:s");
 
       $preparaQuery = $this->conexao->prepare($sql);
 
       $preparaQuery->execute([
-        ':titulo' => $nome,
-        ':descricao' => $telefone,
-        ':precoCompra' => $cpf,
-        ':precoVenda' => $tipoPlano,
-        ':estoque' => $now,
+        ':nome' => $nome,
+        ':telefone' => $telefone,
+        ':cpf' => $cpf,
+        ':idPlano' => $idPlano,
+        ':dataMatricula' => $now,
       ]);
 
       return true;
