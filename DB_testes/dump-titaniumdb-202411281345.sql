@@ -139,14 +139,14 @@ DROP TABLE IF EXISTS `produtosVendas`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `produtosVendas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `idProduto` int(11) NOT NULL,
+  `idProduto` int(11) DEFAULT NULL,
   `idVenda` int(11) NOT NULL,
   `valorUnitario` decimal(5,2) DEFAULT NULL,
   `quantidade` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idProduto` (`idProduto`),
   KEY `idVenda` (`idVenda`),
-  CONSTRAINT `produtosVendas_ibfk_1` FOREIGN KEY (`idProduto`) REFERENCES `produtos` (`id`),
+  CONSTRAINT `produtosVendas_ibfk_1` FOREIGN KEY (`idProduto`) REFERENCES `produtos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `produtosVendas_ibfk_2` FOREIGN KEY (`idVenda`) REFERENCES `vendas` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
