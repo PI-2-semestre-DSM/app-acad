@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
         if ($verifica->verificarCredenciais($login, $senha)) {
             $verifica->__destruct();
             header("Location: pagina_inicial.php");
-            exit();
+            // exit();
         }
         $verifica->__destruct();
     }
