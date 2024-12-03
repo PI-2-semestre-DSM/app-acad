@@ -1,5 +1,6 @@
 <?php
 require("../backend/classes/products.class.php");
+include("login_ativo.php");
 
 $id = $_POST['id'];
 

@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $cadastra = new Aluno();
-        /* $cadastra->(); */
+         $cadastra->(); 
 
         $cadastra->__destruct();
 
@@ -38,32 +38,27 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="desc">Descrição</label>
+            <label class="control-label col-sm-2" for="tel">Telefone</label>
             <div class="col-sm-10">
-                <input type="textarea" class="form-control" id="desc" name="desc" placeholder="Descrição do produto">
+                <input type="number" class="form-control" id="tel" name="tel" placeholder="Descrição do produto">
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="precoCompra"></label>
+            <label class="control-label col-sm-2" for="cpf">CPF</label>
             <div class="col-sm-10">
-                <input type="number" step="0.01" class="form-control" id="precoCompra" name="precoCompra" placeholder="preço de compra">
+                <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF">
             </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="precoVenda"></label>
-                <div class="col-sm-10">
-                    <input type="number" step="00.01" class="form-control" id="precoVenda" name="precoVenda" placeholder="preço de venda">
-                </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="estoque"></label>
                     <div class="col-sm-10">
-                        <input type="radio" id="html" name="fav_language" value="teste">
+                        <input type="radio" id="html" name="idPlano" value="1">
                         <label for="html">mensal</label><br>
-                        <input type="radio" id="css" name="fav_language" value="CSS">
+                        <input type="radio" id="css" name="idPlano" value="2">
                         <label for="css">trimestral</label><br>
-                        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                        <input type="radio" id="javascript" name="idPlano" value="3">
                         <label for="javascript">semestral</label>
-                        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-                        <label for="javascript">semestral</label>
+                        <input type="radio" id="javascript" name="idPlano" value="4">
+                        <label for="javascript">anual</label>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
