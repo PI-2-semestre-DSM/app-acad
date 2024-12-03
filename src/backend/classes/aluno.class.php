@@ -27,7 +27,23 @@ class Aluno
   private function trancarMatricula($idAluno)
   {
     try {
-      $sql = "UPDATE alunos SET ativo = false WHERE :idAluno";
+      $sql = "UPDATE alunos SET ativo = false WHERE id = :idAluno";
+
+      $preparaQuery = $this->conexao->prepare($sql);
+
+      $preparaQuery->execute([
+        ':idAluno' => $idAluno
+      ]);
+      return true;
+    } catch (PDOException $e) {
+      echo "Erro atualizar matrícula: " . $e->getMessage();
+      return false;
+    }
+  }
+  private function destrancarMatricula($idAluno)
+  {
+    try {
+      $sql = "UPDATE alunos SET ativo = true WHERE id = :idAluno";
 
       $preparaQuery = $this->conexao->prepare($sql);
 
@@ -51,5 +67,13 @@ class Aluno
   public function obterTrancarMatricula($id)
   {
     return $this->trancarMatricula($id);
+  }
+  public function obterDestrancarMatricula($id)
+  {
+    return $this->destrancarMatricula($id);
+  }
+  public function __destruct()
+  {
+    $this->conexao = null;
   }
 }

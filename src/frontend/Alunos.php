@@ -34,30 +34,56 @@ require("../backend/classes/aluno.class.php");
                     $nome = $row['nome'];
                     $tel = $row['telefone'];
                     $cpf = $row['cpf'];
-                    $plano = $row['idPlano'];
+                    $plano = $row['tipoPlano'];
                     // fazer conversão de plano id para tipo de plano, fazer o msm para ativo
                     $matricula = $row['dataMatricula'];
                     $ativo = $row['ativo'];
+
+                    print_r($id);
+                    echo '    ';
+
+                     if($ativo == 0){
+                        $ativoresultado = 'nao';
+                    }else{
+                        $ativoresultado = 'sim';
+                    } 
+                    
+
+                    if($ativoresultado == 'sim') {
                     echo "<tr>
-                  <td contenteditable='true'>$nome</td>
-                  <td contenteditable='true'>$tel</td>
-                  <td contenteditable='true'>$cpf</td>
-                  <td contenteditable='true'>$plano</td>
-                  <td contenteditable='true'>$matricula</td>
-                  <td contenteditable='true'>$ativo</td>
+                  <td>$nome</td>
+                  <td>$tel</td>
+                  <td>$cpf</td>
+                  <td>$plano</td>
+                  <td>$matricula</td>
+                  <td>$ativoresultado</td>
                   <form id='deleta'>
                   <input name='id' value='$id' type='hidden'>
-                  <td><button formmethod='POST' formaction='deleta.php' name='$id' type='submit'>Deletar</button></td>
+                  <td><button formmethod='POST' formaction='trancar_matricula.php' name='$id' type='submit'>Trancar</button></td>
                   </form>
               </tr>";
+                }else{
+                    echo "<tr>
+                    <td>$nome</td>
+                    <td>$tel</td>
+                    <td>$cpf</td>
+                    <td>$plano</td>
+                    <td>$matricula</td>
+                    <td>$ativoresultado</td>
+                    <form id='deleta'>
+                    <input name='id' value='$id' type='hidden'>
+                    <td><button formmethod='POST' formaction='Destrancar_matricula.php' name='$id' type='submit'>Destrancar</button></td>
+                    </form>
+                </tr>";
                 }
             }
+        }
          $cria_tabela->__destruct(); 
             ?>
         </tbody>
     </table>
     <div class="button-container text-center">
-        <button class="btn btn-primary"><a href="matricula.php" style="text-decoration:none; color:#FFF">Adicionar
+        <button class="btn btn-primary"><a href="adicionar_aluno.php" style="text-decoration:none; color:#FFF">Adicionar
                 Alunos</a></button>
         <button class="btn btn-secondary"><a href="pagina_inicial.php"
                 style="text-decoration:none; color:#FFF">Voltar</a></button>
