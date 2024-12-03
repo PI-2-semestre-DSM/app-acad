@@ -55,7 +55,7 @@ class Produtos
   private function deletarProduto($idProduto)
   {
     try {
-      $sql = "DELETE FROM produto WHERE id=:id";
+      $sql = "DELETE FROM produtos WHERE id=:id";
 
       $preparaQuery = $this->conexao->prepare($sql);
 
