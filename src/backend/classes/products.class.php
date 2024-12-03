@@ -49,12 +49,13 @@ class Produtos
       echo "Erro: " . $e->getMessage();
       return false;
     }
+
   }
 
   private function deletarProduto($idProduto)
   {
     try {
-      $sql = "DELETE FROM produto WHERE id=:id";
+      $sql = "DELETE FROM produtos WHERE id=:id";
 
       $preparaQuery = $this->conexao->prepare($sql);
 
