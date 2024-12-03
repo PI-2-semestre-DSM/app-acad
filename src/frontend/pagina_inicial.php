@@ -3,7 +3,7 @@ include("navbar.php");
 require_once("login_ativo.php");
 ?>
 
-<nav aria-label="Navegação de página">
+<nav aria-label="Navegação de página" style="margin-top:50px">
     <ul class="pagination justify-content-center">
         <li class="page-item">
             <a class="page-link" href="alunos.php" id="link-alunos">ALUNOS</a>
@@ -18,7 +18,9 @@ require_once("login_ativo.php");
 </nav>
 
 
-<button><a href="logout.php">Fazer Logout</a></button>
+<div class="titulo" style="margin-top:50px">
+<button type="button" class="btn btn-primary btn-lg"><a href="logout.php" style="text-decoration:none; color:#FFF;">Fazer Logout</a></button>
+</div>
 </body>
 
 </html>
