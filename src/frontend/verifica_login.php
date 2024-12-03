@@ -1,7 +1,6 @@
 <?php
 require_once('../backend/classes/login.class.php');
-include("login_ativo.php");
-print_r($_SESSION['logged_in']);
+
 
 if (isset($_POST['submit'])) {
     $login = $_POST["login"];
@@ -17,7 +16,4 @@ if (isset($_POST['submit'])) {
     }
 } else {
     echo "nao existe?";
-    
 }
-
-?>
