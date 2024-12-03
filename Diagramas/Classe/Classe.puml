@@ -10,10 +10,15 @@ class ConexaoBancoDeDados {
 class Aluno {
     - conexao
     + __construct()
+    - novoAluno()
     - listaAlunos()
     - trancarMatricula()
+    - destrancarMatricula()
     + obterListaDeAlunos()
-    + obterTrancarMatricula(id)
+    + obterTrancarMatricula()
+    + obterDestrancarMatricula()
+    + matricularAluno()
+    + __destruct()
 }
 
 class Venda {
@@ -28,10 +33,11 @@ class Produtos {
     - criarProduto()
     - listaDeProdutos()
     - deletarProduto()
-    + obterProdutos()
-    + novoProduto()
-    + fazerDelecaoProduto()
     - pesquisarProduto()
+    + novoProduto()
+    + obterProdutos()
+    + fazerDelecaoProduto()
+    + __destruct()
 }
 
 class Pagamento {
