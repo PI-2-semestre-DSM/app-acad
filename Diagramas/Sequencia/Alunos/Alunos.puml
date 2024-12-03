@@ -1,0 +1,29 @@
+@startuml
+skinparam actorStyle awesome
+actor Usuario as usuario
+participant Aluno as aluno
+participant Banco_De_Dados as db
+
+usuario -> aluno : Solicitar lista de alunos
+aluno -> db : Conectar ao banco de dados
+db --> aluno : Conexão estabelecida
+
+aluno -> db : Buscar lista de alunos
+alt Lista de alunos retornada com sucesso
+    db --> aluno : Dados dos alunos
+    aluno --> usuario : Exibir lista de alunos
+else Falha ao buscar dados
+    db --> aluno : Erro ao buscar dados
+    aluno --> usuario : Notificar falha
+end
+
+usuario -> aluno : Solicitar trancar matrícula
+aluno -> db : Atualizar status da matrícula (ativo = false)
+alt Matrícula trancada com sucesso
+    db --> aluno : Confirmação da alteração
+    aluno --> usuario : Matrícula trancada com sucesso
+else Falha ao trancar matrícula
+    db --> aluno : Erro ao trancar matrícula
+    aluno --> usuario : Notificar falha ao trancar matrícula
+end
+@enduml

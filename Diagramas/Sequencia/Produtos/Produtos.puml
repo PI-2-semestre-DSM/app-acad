@@ -1,0 +1,31 @@
+@startuml
+skinparam actorStyle awesome
+actor Usuario as usuario
+participant Produtos as produto
+participant Banco_De_Dados as db
+
+usuario -> produto : Solicitar ação (Criar ou Deletar Produto)
+produto -> db : Conectar ao banco de dados
+db --> produto : Conexão estabelecida
+
+alt Criar Produto
+    produto -> db : Verificar se o produto já existe
+    alt Produto existente
+        produto --> usuario : Informar que o produto já existe
+    else Novo produto
+        produto -> db : Inserir os dados do novo produto
+        db --> produto : Produto criado com sucesso
+        produto --> usuario : Notificar sucesso no registro do produto
+    end
+else Deletar Produto
+    usuario -> produto : Solicitar deleção do produto
+    produto -> db : Buscar e deletar produto pelo ID
+    alt Produto deletado com sucesso
+        db --> produto : Confirmação de deleção
+        produto --> usuario : Informar sucesso na deleção
+    else Produto não encontrado
+        db --> produto : Erro: Produto não encontrado
+        produto --> usuario : Notificar que o produto não foi encontrado
+    end
+end
+@enduml

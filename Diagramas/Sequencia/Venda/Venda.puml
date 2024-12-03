@@ -1,0 +1,28 @@
+@startuml
+skinparam actorStyle awesome
+actor Usuario as usuario
+participant Venda as venda
+participant Banco_De_Dados as db
+
+usuario -> venda : Solicitar registro de venda (produto e quantidade)
+venda -> db : Conectar ao banco de dados
+db --> venda : Conexão estabelecida
+
+venda -> db : Registrar informações da venda no banco de dados
+alt Venda registrada com sucesso
+    db --> venda : Confirmação do registro
+    venda --> usuario : Notificar venda registrada com sucesso
+else Falha ao registrar a venda
+    db --> venda : Informar erro no registro
+    venda --> usuario : Notificar falha ao registrar a venda
+end
+
+venda -> db : Atualizar estoque
+alt Estoque atualizado com sucesso
+    db --> venda : Confirmação da atualização do estoque
+    venda --> usuario : Notificar sucesso na atualização do estoque
+else Falha ao atualizar estoque
+    db --> venda : Erro ao atualizar estoque
+    venda --> usuario : Notificar falha na atualização do estoque
+end
+@enduml
