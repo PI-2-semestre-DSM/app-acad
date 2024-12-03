@@ -1,5 +1,7 @@
 <?php
+session_start();
 require_once('connection.class.php');
+
 class Login
 {
   private $conexao;
@@ -26,7 +28,6 @@ class Login
       // dps vou pesquisar sobre e tentar aplicar.
       if ($preparaQuery->rowCount() > 0) {
         $usuario = $preparaQuery->fetch(PDO::FETCH_ASSOC);
-        print_r($usuario["senha"]);
         if (($senha == $usuario["senha"])) {
           $_SESSION["logged_in"] = TRUE;
           return true;

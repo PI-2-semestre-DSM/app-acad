@@ -1,5 +1,6 @@
 <?php
-require("../backend/classes/aluno.class.php");
+require_once("../backend/classes/aluno.class.php");
+include("login_ativo.php");
 
 $id = $_POST['id'];
 

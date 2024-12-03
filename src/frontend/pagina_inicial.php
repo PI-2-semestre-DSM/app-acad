@@ -20,5 +20,8 @@ include("login_ativo.php");
             </li>
         </ul>
     </nav> 
+
+
+    <button><a href="logout.php">Fazer Logout</a></button>
 </body>
 </html>
