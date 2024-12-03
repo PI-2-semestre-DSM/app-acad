@@ -49,6 +49,7 @@ class Produtos
       echo "Erro: " . $e->getMessage();
       return false;
     }
+
   }
 
   private function deletarProduto($idProduto)
